@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AssemblyName>LuongVinhKhang.SachOnline.New</AssemblyName>
-		<StaticWebAssetBasePath>_content/HVQ.SachOnline.New</StaticWebAssetBasePath>
+		<StaticWebAssetBasePath>_content/Lvk.SachOnline.New</StaticWebAssetBasePath>
 	</PropertyGroup>
 
 
