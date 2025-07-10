@@ -21,4 +21,4 @@ COPY --from=build /app/publish .
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 # Chạy ứng dụng - nhớ đúng tên file .dll
-ENTRYPOINT ["dotnet", "LuongVinhKhang.SachOnline.New.dll"]
+ENTRYPOINT ["dotnet", "LuongVinhKhang.SachOnline.dll"]
