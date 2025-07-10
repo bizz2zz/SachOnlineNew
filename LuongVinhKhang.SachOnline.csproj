@@ -1,14 +1,12 @@
-﻿
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AssemblyName>LuongVinhKhang.SachOnline.New</AssemblyName>
-		<StaticWebAssetBasePath>_content/Lvk.SachOnline.New</StaticWebAssetBasePath>
+		<!-- <StaticWebAssetBasePath>_content/Lvk.SachOnline.New</StaticWebAssetBasePath> -->
 	</PropertyGroup>
-
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.14" />
@@ -21,18 +19,5 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
 	</ItemGroup>
-
-
-	<ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Migrations\" />
-    <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\Images\KT0003.jpg" />
-  </ItemGroup>
 
 </Project>
