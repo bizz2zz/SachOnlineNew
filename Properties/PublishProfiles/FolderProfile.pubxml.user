@@ -2,14 +2,14 @@
 <!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\quang\Downloads\New folder</_PublishTargetUrl>
-    <History>True|2025-07-10T03:25:38.3856338Z||;True|2025-07-10T02:00:00.3992087+07:00||;True|2025-07-10T01:31:23.7687274+07:00||;True|2025-07-10T00:32:05.1557467+07:00||;True|2025-07-08T23:39:28.0724731+07:00||;True|2025-07-08T20:29:33.1735991+07:00||;</History>
-    <LastFailureDetails />
     <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\New folder (3)</_PublishTargetUrl>
+    <History>True|2025-07-10T13:00:03.3603678Z||;</History>
+    <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="DefaultConnection">
-      <Value>workstation id=StoreBookOnline.mssql.somee.com%3bpacket size=4096%3buser id=bookstoreonline%3bpwd=0123456789az%3bdata source=StoreBookOnline.mssql.somee.com%3bpersist security info=False%3binitial catalog=StoreBookOnline%3bTrustServerCertificate=True</Value>
+      <Value>workstation id=BookStore.mssql.somee.com%3bpacket size=4096%3buser id=khang%3bpwd=superman1a%3bdata source=BookStore.mssql.somee.com%3bpersist security info=False%3binitial catalog=BookStore%3bTrustServerCertificate=True</Value>
     </DestinationConnectionStrings>
   </ItemGroup>
 </Project>
