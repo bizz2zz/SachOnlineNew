@@ -1,0 +1,102 @@
+﻿@model LuongVinhKhang.SachOnline.Models.Product
+@{
+    ViewData["Title"] = "Chi tiết sách";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="container mt-4 mb-5">
+    <div class="panel panel-default">
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <img src="@Url.Content(Model.Image != null ? "~/Images/" + Model.Image : "~/Images/default.jpg")"
+                     alt="@Model.Name"
+                     class="img-responsive img-rounded"
+                     style="max-height: 100%; object-fit: cover; width: 100%;" />
+            </div>
+            <div class="col-sm-8 col-xs-12">
+                <div class="panel-body">
+                    <h2 class="text-primary">@Model.Name</h2>
+                    <hr />
+                    <p><strong>Chủ đề:</strong> @Model.ChuDe?.Name</p>
+                    <p><strong>Nhà xuất bản:</strong> @Model.NhaXuatBan?.Name</p>
+                    <p><strong>Số lượng bán:</strong> @Model.SoLuongBan</p>
+                    <p><strong>Mô tả:</strong> @Model.MoTa</p>
+                    <p><strong>Giá:</strong> <span class="text-danger">@Model.Price.ToString("N0") VNĐ</span></p>
+                    @{
+                        bool hetHang = Model.SoLuong <= 0;
+                    }
+
+                    <form asp-controller="Cart" asp-action="AddToCart" method="post" class="mt-4">
+                        <input type="hidden" name="productId" value="@Model.Id" />
+
+                        @if (!hetHang)
+                        {
+                            <div class="d-flex align-items-center mb-3">
+                                <label for="quantity" class="mr-2 mb-0" style="white-space: nowrap;"><strong>Số lượng:</strong></label>
+                                <input type="number" name="quantity" id="quantity"
+                                       class="form-control"
+                                       value="1" min="1" max="@Model.SoLuong"
+                                       data-max="@Model.SoLuong"
+                                       style="width: 100px;" />
+
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger p-2 mb-3 text-center">
+                                <strong>Hết hàng!</strong> Sách hiện đã hết trong kho.
+                            </div>
+                        }
+
+                        <div class="text-center mb-3">
+                            @if (!hetHang)
+                            {
+                                <button type="submit" class="btn btn-primary px-4">
+                                    <span class="fas fa-shopping-cart"></span> Thêm vào giỏ hàng
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-secondary px-4" disabled>
+                                    <span class="fas fa-times-circle"></span> Hết hàng
+                                </button>
+                            }
+                        </div>
+
+                        <div class="text-center">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary">
+                                <span class="fas fa-arrow-left"></span> Quay lại
+                            </a>
+                        </div>
+                    </form>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const quantityInput = document.getElementById("quantity");
+            if (!quantityInput) return;
+
+            const maxQty = parseInt(quantityInput.dataset.max);
+
+            quantityInput.addEventListener("input", function () {
+                const val = parseInt(this.value);
+                if (val > maxQty) {
+                    alert(`Số lượng bạn chọn vượt quá tồn kho. Chỉ còn lại ${maxQty} sản phẩm.`);
+                    this.value = maxQty;
+                } else if (val < 1 || isNaN(val)) {
+                    this.value = 1;
+                }
+            });
+        });
+    </script>
+}
+
