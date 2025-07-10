@@ -1,14 +1,11 @@
 # ----- Build stage -----
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+WORKDIR /app
 
-# Copy toàn bộ source vào container
+# Copy toàn bộ source code
 COPY . .
 
-# Di chuyển vào đúng folder chứa .csproj
-WORKDIR /src/LuongVinhKhang.SachOnline
-
-# Restore dependencies
+# Restore NuGet packages
 RUN dotnet restore
 
 # Build và publish
@@ -18,6 +15,8 @@ RUN dotnet publish -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
+# Copy output từ build stage qua
 COPY --from=build /app/publish .
 
+# Run app
 ENTRYPOINT ["dotnet", "LuongVinhKhang.SachOnline.dll"]
